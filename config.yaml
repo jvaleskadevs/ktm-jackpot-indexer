@@ -6,8 +6,8 @@ networks:
   contracts:
   - name: KickTheMarket
     address:
-    - 0xEAd257d8b5A0DaE586F1aB1524Ffd8A1461a17a6
-    - 0x4c99638a024B60aadb3586E07B015FC524d22688
+    - 0x14Dabc24Af69d38701927B68E004c71169790a5d
+    - 0x634c4e43Bec566a7704612c8dD1F7c3Dbe28BFDC
     handler: ./src/EventHandlers.js
     events:
     - event: Mint(uint256 indexed tokenId, address indexed to, uint256 score, uint256 anomalyLevel, uint256 blackSwanLevel, uint256 totalKicks, bytes proof)
@@ -20,7 +20,7 @@ networks:
     - event: NewSponsor(uint256 indexed week, address indexed sponsor, uint256 indexed amount, uint8 tier, string name, string cta, string description, string logoUrl, string website)
   - name: Jackpot
     address:
-    - 0xA22A367090543e294CBb20b6F1D17a9c4d620052
+    - 0x4DFF47404766cfDf82665A40Eb822870b9A68538
     handler: ./src/EventHandlers.js
     events:
     - event: JackpotWinner(uint64 indexed ticketId, address indexed winner, uint256 prize)
