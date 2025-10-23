@@ -29,6 +29,7 @@ pnpm dev
 pnpm test
 ```
 
+Made with love by J. Valeska.
 
 ## Envio Indexer
 
