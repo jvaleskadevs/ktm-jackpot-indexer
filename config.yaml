@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=./node_modules/envio/evm.schema.json
+name: envio-indexer
+networks:
+- id: 8453
+  start_block: 0
+  contracts:
+  - name: KickTheMarket
+    address:
+    - 0xEAd257d8b5A0DaE586F1aB1524Ffd8A1461a17a6
+    - 0x4c99638a024B60aadb3586E07B015FC524d22688
+    handler: ./src/EventHandlers.js
+    events:
+    - event: Mint(uint256 indexed tokenId, address indexed to, uint256 score, uint256 anomalyLevel, uint256 blackSwanLevel, uint256 totalKicks, bytes proof)
+    - event: Transfer(address indexed from, address indexed to, uint256 indexed tokenId)
+  - name: Sponsors
+    address:
+    - 0x4f17a5529B4E3e20467774708435740792E460eE
+    handler: ./src/EventHandlers.js
+    events:
+    - event: NewSponsor(uint256 indexed week, address indexed sponsor, uint256 indexed amount, uint8 tier, string name, string cta, string description, string logoUrl, string website)
+  - name: Jackpot
+    address:
+    - 0xA22A367090543e294CBb20b6F1D17a9c4d620052
+    handler: ./src/EventHandlers.js
+    events:
+    - event: JackpotWinner(uint64 indexed ticketId, address indexed winner, uint256 prize)
+    - event: JackpotClaimed(address indexed winner, uint256 prize, address indexed caller)
+    - event: RandomNumberResult(uint64 indexed sequenceNumber, bool isWinner, uint256 randomNumber)
+    - event: TicketAssigned(uint64 indexed ticketId, address indexed player, uint256 amount, address indexed gameAddress)
+unordered_multichain_mode: true
+preload_handlers: true

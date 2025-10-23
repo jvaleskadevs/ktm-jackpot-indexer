@@ -1,0 +1,60 @@
+type KickTheMarket_Mint {
+  id: ID!
+  tokenId: BigInt!
+  to: String!
+  score: BigInt!
+  anomalyLevel: BigInt!
+  blackSwanLevel: BigInt!
+  totalKicks: BigInt!
+  proof: String!
+  address: String!
+}
+
+type KickTheMarket_Transfer {
+  id: ID!
+  from: String!
+  to: String!
+  tokenId: BigInt!
+}
+
+type Sponsors_NewSponsor {
+  id: ID!
+  week: BigInt!
+  sponsor: String!
+  amount: BigInt!
+  tier: BigInt!
+  name: String!
+  cta: String!
+  description: String!
+  logoUrl: String!
+  website: String!
+}
+
+type Jackpot_TicketAssigned {
+  id: ID!,
+  ticketId: BigInt!
+  player: String!
+  amount: BigInt!
+  gameAddress: String!
+}
+
+type Jackpot_RandomNumberResult {
+  id: ID!,
+  sequenceNumber: BigInt!
+  isWinner: Boolean!
+  randomNumber: BigInt!
+}
+
+type Jackpot_JackpotWinner {
+  id: ID!,
+  ticketId: BigInt!  
+  winner: String!
+  prize: BigInt!
+}
+
+type Jackpot_JackpotClaimed {
+  id: ID!,
+  winner: String!
+  prize: BigInt!
+  caller: String!
+}
